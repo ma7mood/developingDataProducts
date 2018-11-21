@@ -43,9 +43,10 @@ output:
 if (input$smoother) {
       g <- g + geom_smooth(aes(color=Month), show.legend = FALSE)
 }
-```
+```rc
 
 ## Where to find the project:
 
 * The project is hosted on shiny apps at the following link: https://ma7mood.shinyapps.io/my-app/
-* The source code of the app is published on github at the following link: 
+* The source code of the app is published on github at the following link: https://github.com/ma7mood/developingDataProducts/tree/master/my-app
+
