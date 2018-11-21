@@ -1,0 +1,51 @@
+---
+title: "Developing Data Products Final Project Presentation"
+author: "Saad Mahmood"
+date: "18 November 2018"
+output: 
+  revealjs::revealjs_presentation:
+    transition: zoom 
+    theme: moon
+    center: true
+---
+
+## App Overview
+
+* The application lets you observe global surface temperature changes over the years 1880-2018.
+* Data was gathered by NASA exploring surface temperature change from 1880 - 2018.
+* The code is divided in two main files: *ui.R* and *server.R*
+* *ui.R* is where user inputs are taken and plots are shown.
+* *server.R* is where user inputs and processed and the plots are gene  rated.
+
+
+## Workings of ui.R
+
+* It has a header Panel with the title
+* A sidebar panel with the following inputs, a checkbox and a range slider.
+```{r eval=FALSE}
+    checkboxInput(inputId = "smoother", 
+                  "Add A Smoother to Observe Trend", TRUE)
+    sliderInput(inputId = "rangeYears", 
+                label = "Choose a range of years", 
+                value = c(randYear, randYear2),
+                min = minYear, 
+                max = maxYear,
+                dragRange = TRUE
+    )
+```
+* Finally, it has a main panel which shows all the plots
+
+## Workings of server.R
+* It uses user inputs as taken from ui.R and uses them to generate a plot.
+* The plot is a ggplot object of the temperature changes for each month over the range of years provided by the user.
+* It has the following code to add a smoother to the ggplot object
+```{r eval=FALSE}
+if (input$smoother) {
+      g <- g + geom_smooth(aes(color=Month), show.legend = FALSE)
+}
+```
+
+## Where to find the project:
+
+* The project is hosted on shiny apps at the following link: https://ma7mood.shinyapps.io/my-app/
+* The source code of the app is published on github at the following link: 
